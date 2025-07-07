@@ -6,6 +6,6 @@
 *.tfstate.*
 
 # terraform lock file
-.erraform.lock.hcl
+.terraform.lock.hcl
 # doccuments
 *.doc
