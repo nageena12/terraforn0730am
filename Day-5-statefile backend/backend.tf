@@ -3,9 +3,6 @@ terraform {
     bucket = "asshulovessree"
     key    = "terraform.tfstate"
     region = "us-east-1"
+    object_lock_enabled = true
   }
-}
-resource "aws_vpc" "name" {
-  cidr_block = "10.0.0.0/16"
-  
 }
