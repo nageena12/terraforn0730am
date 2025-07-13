@@ -24,14 +24,7 @@ resource "aws_internet_gateway" "name" {
   
 }
 #Route Table
-resource "aws_route_table" "name" {
-    vpc_id = aws_vpc.name.id
-    route = {
-     cidr_block = "0.0.0.0/0"
-     gateway_id = aws_internet_gateway.name.id
-    }
-  
-}
+
 #subnet associations
 resource "aws_route_table_association" "name" {
     subnet_id = aws_subnet.name.id
@@ -39,6 +32,14 @@ resource "aws_route_table_association" "name" {
   
 }
 #sg group
+resource "aws_route_table" "name" {
+  vpc_id = aws_vpc.name.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.name.id
+  }
+}
 resource "aws_security_group" "test-sg" {
     name = "test-sg"
     vpc_id = aws_vpc.name.id
